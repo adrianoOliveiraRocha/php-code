@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {% block title %}
+    <title>Base</title>
+    {% endblock %}
+
     {{ include('/core/include/bootstrap-links.html') }}
+    
 </head>
 <body>
     <div class="container">
+
         <header>
             <ul class="nav nav-pills">
                 <li class="nav-item">
@@ -18,11 +25,15 @@
                 </li>                
             </ul> 
         </header>
-
+        
+        {% block content %}
         <div class="container">
-            {% block head %}
-            <h2>Home Page</h2>
-            {% endblock %}
+            <h1>Base content</h1>
+        </div>
+        {% endblock %}
+        
+        <div class="footer">
+            <h2>This is my footer</h2>
         </div>
         
     </div>

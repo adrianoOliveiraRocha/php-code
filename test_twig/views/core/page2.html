@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 2</title>
-    {{ include('/core/include/bootstrap-links.html') }}
-</head>
-<body>
-    <h1>This is my page 2</h1>
-    <a href="/">Call home</a>
-    <br>
-    <a href="/page1">Call page 1</a>
-    <br>
-    <a href="/page2">Call page 2</a>
-</body>
-</html>
+{% extends "/core/base.html" %}
+
+{% block title %} <title>Page 2</title> {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Page 2 content content</h1>
+</div>
+{% endblock %}
