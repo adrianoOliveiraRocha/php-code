@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "IcyApril\\ChapterOne\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.1",
+        "vlucas/phpdotenv": "^4.1"
+    }
+}

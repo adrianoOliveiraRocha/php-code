@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ include('/core/include/bootstrap-links.html') }}
+</head>
+<body>
+    <div class="container">
+        <header>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/new-user">New User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/show-users">Show Users</a>
+                </li>                
+            </ul> 
+        </header>
+
+        <div class="container">
+            {% block head %}
+            <h2>Home Page</h2>
+            {% endblock %}
+        </div>
+        
+    </div>
+</body>
+</html>

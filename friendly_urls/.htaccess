@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteRule ^about$ pages/about.html [NC] 
+RewriteRule ^contact$ pages/contact.html [NC]
+RewriteRule ^portfolio$ pages/portfolio.html [NC]
+RewriteRule ^other$ pages/other_page.html [NC]
+RewriteRule ^([A-Za-z0-9]+)/([A-Za-z0-9]+)/? urls.php?item=$1&season=$2 [QSA]

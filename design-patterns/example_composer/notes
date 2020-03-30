@@ -1,0 +1,4 @@
+When you change something (for example, you add, delete, or rename some of your 
+classes) you need run composer dump-autoload
+
+Use composer update to update dependences
