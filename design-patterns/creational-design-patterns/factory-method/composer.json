@@ -1,0 +1,8 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Models\\": "src/models",
+            "Factory\\": "src/factory"
+        }
+    }
+}
