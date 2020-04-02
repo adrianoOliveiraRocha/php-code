@@ -1,6 +1,6 @@
 <?php
 
-namespace Toy;
+namespace Toys;
 
 abstract class PuzzleToy extends Toy
 {

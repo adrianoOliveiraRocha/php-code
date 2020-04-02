@@ -11,8 +11,3 @@ require_once(__DIR__ . '/src/toys/SFMazeToy.php');
 require_once(__DIR__ . '/src/toys/SFPuzzleToy.php');
 require_once(__DIR__ . '/src/toys/UKMazeToy.php');
 require_once(__DIR__ . '/src/toys/UKPuzzleToy.php ');
-
-echo __DIR__ . "\n";
-
-
-
