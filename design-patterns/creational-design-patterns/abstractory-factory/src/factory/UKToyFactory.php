@@ -11,7 +11,7 @@ class UKToyFactory implements ToyFactory
         return new \Toys\UKMazeToy();
     }
     
-    public function makePuzlle()
+    public function makePuzzle()
     {
         return new \Toys\UKPuzzleToy();
     }

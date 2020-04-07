@@ -16,12 +16,12 @@ $uploadPath = $currentDir . $uploadDirectory . basename($fileName);
 
 if (isset($_POST['submit'])) {
 
-    if (! in_array($fileExtension,$fileExtensions)) {
-        $errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
+    if (! in_array($fileExtension, $fileExtensions)) {
+        $errors[] = "Esse tipo de arquivo não é permitido. Por favor use arquivos do tipo JPEG, JPG ou PNG.";
     }
 
     if ($fileSize > 2000000) {
-        $errors[] = "This file is more than 2MB. Sorry, it has to be less than or equal to 2MB";
+        $errors[] = "Esse arquivo tem mais de 2MB. Por favor, escolha um arquivo de tamanho menor ou igual a 2MB";
     }
 
     if (empty($errors)) {
