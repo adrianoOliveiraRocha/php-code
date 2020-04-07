@@ -6,6 +6,8 @@ class Core {
   
   public static function uploadImage($file, $uploadDirectory) {
 
+    $response = false;
+
     $currentDir = getcwd();
     $uploadDirectory = $uploadDirectory;
     $errors = [];
@@ -20,13 +22,21 @@ class Core {
 
     if(isset($_POST['submit'])) {
       
-      if (! in_array($fileExtension, $fileExtensions)) {
-        # code...
+      if (!in_array($fileExtension, $fileExtensions)) {
+        $errors[] = "Esse tipo de arquivo não é permitido. Por favor use arquivos do tipo JPEG, JPG ou PNG.";
       }
 
-    } else {
-      
-    }      
+      if($fileSize > 2000000) {
+        $errors[] = "Esse arquivo tem mais de 2MB. Por favor, escolha um arquivo de tamanho menor ou igual a 2MB";
+      }
+
+      if(empty($errors)) {
+        return move_uploaded_file($fileTmpName, $uploadPath); // return true      
+      } else {
+        return $errors;
+      }
+
+    }     
      
   }
 
