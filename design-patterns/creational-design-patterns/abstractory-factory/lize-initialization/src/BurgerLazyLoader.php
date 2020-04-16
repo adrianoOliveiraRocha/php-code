@@ -1,20 +1,20 @@
 <?php
-require_once('Burguer.php');
+require_once('Burger.php');
 
 class BurgerLazyLoader {
   private static $instances = array();
 
-  public static function getBurguer(bool $cheese, bool $chips): Burguer {
+  public static function getBurger(bool $cheese, bool $chips): Burger {
     
     if(!isset(self::$instances[$cheese . $chips])) {
-      self::$instances[$cheese . $chips] = new Burguer($cheese, $chips);
+      self::$instances[$cheese . $chips] = new Burger($cheese, $chips);
     }
 
     return self::$instances[$cheese . $chips];
   }
 
-  public static function getBurguerCount(): int {
-    return count(self::instances);
+  public static function getBurgerCount(): int {
+    return count(self::$instances);
   }
 
 }
