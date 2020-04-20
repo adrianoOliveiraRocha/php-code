@@ -2,7 +2,7 @@
 
 namespace Utils;
 
-class DownloadFile {
+class DownloadImage {
   
   public static function uploadImage($file, $uploadDirectory) {
 
