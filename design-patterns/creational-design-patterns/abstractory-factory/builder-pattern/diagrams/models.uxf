@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>50</y>
+      <w>270</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Pizza
+--
+-size
+-cheese
+-pepperoni
+-bacon
+--
+#+__construct(PizzaBuilder builder)
+show()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>300</y>
+      <w>300</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>PizzaBuilder
+--
++size
++cheese
++pepperoni
++bacon
+--
+#+__construct(int size)
++cheese(bool present): PizzaBuilder
++pepperoni(bool $present): PizzaBuilder
++bacon(bool $present): PizzaBuilder
++build()
+show()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>190</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+</diagram>
