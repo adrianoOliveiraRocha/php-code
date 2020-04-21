@@ -1,3 +1,7 @@
 <?php
 
-print("Let's begin with decorator pattern\n");
+require_once('src/EBook.php');
+
+$PHPEBook = new EBook("Mastering PHP Design Patterns", "Junade Ali", "Some contents");
+
+echo "{$PHPEBook->getTitle()}";
