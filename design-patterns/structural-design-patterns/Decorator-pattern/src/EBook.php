@@ -1,6 +1,6 @@
 <?php
 
-class EBook 
+class EBook implements Book
 {
   public $title;
   public $author;
@@ -8,15 +8,9 @@ class EBook
 
   public function __construct(string $title, string $author, string $contents)
   {
-    echo "received: $title; $author; $contents \n";
     $this->title = $title;
     $this->author = $author;
-    $this->content = $contents;
-  }
-
-  public function test()
-  {
-    return "test \n";
+    $this->contents = $contents;
   }
 
   public function getTitle(): string
