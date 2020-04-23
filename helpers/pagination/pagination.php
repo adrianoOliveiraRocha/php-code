@@ -1,6 +1,6 @@
 <?php
 
-$pagesNumber = \Helper\Pagination::getPagesNumber();
+$pagesNumber = \Helper\Pagination::getPagesNumber($categoryId);
 $amplitude = \Helper\Pagination::getAmplitude();
 
 ?>
@@ -26,7 +26,7 @@ $amplitude = \Helper\Pagination::getAmplitude();
     <!-- previous -->
     <?php if($previous['exists']) { ?>
     <li class="page-item"><a class="page-link" 
-      href="index.php?core&page=<?php print($previous['value']);?>">&laquo;</a></li>
+      href="index.php?core&page=<?php print($previous['value'] . \Helper\Pagination::categoryExists($categoryId));?>">&laquo;</a></li>
     <?php } ?>
     <!-- /previous -->
     
@@ -38,7 +38,8 @@ $amplitude = \Helper\Pagination::getAmplitude();
 
     <!-- left side -->
     <?php foreach($sides['left'] as $l) { ?>
-    <li class="page-item"><a class="page-link" href="index.php?core&page=<?php print($l);?>">
+    <li class="page-item"><a class="page-link" 
+      href="index.php?core&page=<?php print($l . \Helper\Pagination::categoryExists($categoryId));?>">
       <?php echo $l;?>
     </a></li>
     <?php } ?>  
@@ -52,7 +53,8 @@ $amplitude = \Helper\Pagination::getAmplitude();
 
     <!-- right side -->
     <?php foreach($sides['right'] as $r) { ?>
-    <li class="page-item"><a class="page-link" href="index.php?core&page=<?php print($r);?>">
+    <li class="page-item"><a class="page-link" 
+      href="index.php?core&page=<?php print($r . \Helper\Pagination::categoryExists($categoryId));?>">
       <?php echo $r;?>
     </a></li>
     <?php } ?>  
@@ -67,19 +69,19 @@ $amplitude = \Helper\Pagination::getAmplitude();
     <!-- next -->
     <?php if($next['exists']) { ?>
     <li class="page-item"><a class="page-link" 
-      href="index.php?core&page=<?php print($next['value']);?>">&raquo;</a></li> 
+      href="index.php?core&page=<?php print($next['value']. \Helper\Pagination::categoryExists($categoryId));?>">&raquo;</a></li> 
     <?php } ?> 
     <!-- /next -->
 
   </ul>
 </nav>
 
-<?php } else { ?>
+<?php } else { ?> 
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <?php for($i = 1; $i <= $pagesNumber; $i++) { ?>
     <li class="page-item <?php if($i == $page) {echo "active";}?>"><a class="page-link" 
-      href="index.php?core&page=<?php print($i);?>">
+      href="index.php?core&page=<?php print($i . \Helper\Pagination::categoryExists($categoryId));?>">
       <?php echo $i;?>
     </a></li>
     <?php } ?>

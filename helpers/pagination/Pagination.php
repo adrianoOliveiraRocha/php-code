@@ -9,7 +9,7 @@ class Pagination
   protected static $rightSide;
   // how much products per page
   //The limit determine the number of pages
-  private static $limit = 6;
+  private static $limit = 3;
   
   public function getAmplitude(): int
   {
@@ -70,31 +70,42 @@ class Pagination
 		return Pagination::$limit;
 	}
   
-  public static function getProductsPage($page) 
+  public static function getProductsPage($page, $categoryId) 
   {
     $limit = Pagination::getLimit();
-    $offset = ($page * $limit) - $limit;    
+    $offset = ($page * $limit) - $limit;
+    $query = "select * from product limit $limit offset $offset";
+    if($categoryId) {
+      $query = "select * from product where category = $categoryId limit $limit offset $offset";
+    }   
+    
     try {
       $connect = \Config\Connect::getInstance();
-      $products = $connect->query("select * from product limit $limit offset $offset")->fetchAll();
+      $products = $connect->query($query)->fetchAll();
 		  return [true, $products];
     } catch (\PDOException $e) {
       return [false, $e->getMessage()];
     }
   }
 
-  public function getPagesNumber()
+  public function getPagesNumber($categoryId)
   {
     $limit = Pagination::getLimit();
-    $productsQuantity = Pagination::getProductsQuantity();
-    return (int) $productsQuantity / $limit;
+    $productsQuantity = Pagination::getProductsQuantity($categoryId);
+    $pagesNumber = $productsQuantity / $limit;
+    return (gettype($pagesNumber) == 'double' ? (int)($pagesNumber + 1): $pagesNumber);
   }
 
-  public function getProductsQuantity()
+  public function getProductsQuantity($categoryId): int
   {
+    $query = "select count(*) as quantity from product";
+    if($categoryId) {
+      $query = "select count(*) as quantity from product where category = $categoryId";
+    }
+
     try {
       $connect = \Config\Connect::getInstance();
-      $productsQuantity = $connect->query("select count(*) as quantity from product")->fetch();
+      $productsQuantity = $connect->query($query)->fetch();
 		  return (int) $productsQuantity['quantity'];
     } catch (\PDOException $e) {
       throw $e;
@@ -138,6 +149,11 @@ class Pagination
   public static function getOverNext(int $currentPage, int $pagesNumber): bool
   {
     return ($currentPage < $pagesNumber ? true : false);
+  }
+
+  public function categoryExists($categoryId)
+  {
+    return (empty($categoryId) ? null : "&categoryId=$categoryId");
   }
   
 }
