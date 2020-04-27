@@ -30,7 +30,7 @@ class Circle
   public function draw()
   {
     print("Drwaing circule with is " . $this->colour 
-      . "at [" . $this->x . ", " . $this->y 
+      . " at [" . $this->x . ", " . $this->y 
       . "] of radius " . $this->radius . ".");
     echo "\n";
   }
