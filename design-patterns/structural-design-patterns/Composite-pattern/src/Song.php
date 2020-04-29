@@ -11,8 +11,9 @@ class Song implements Music
     $this->name = $name;
   }
   
-  public function play();
+  public function play()
   {
     printf("Playing song #%s, %s. \n", $this->id, $this->name);
   }
+  
 }

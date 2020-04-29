@@ -2,6 +2,7 @@
 
 require_once('src/Music.php');
 require_once('src/Playlist.php');
+require_once('src/Song.php');
 
 $songOne = new Song('Lost In Stereo');
 $songTwo = new Song('Running from Lions');
@@ -16,4 +17,5 @@ $playListThree->addSong($songThree);
 $playListOne->addSong($playListTwo);
 $playListOne->addSong($playListThree);
 
-echo $playlistOne->play();
+echo $playListOne->play();
+//print_r($playListOne);
