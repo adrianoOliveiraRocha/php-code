@@ -8,8 +8,12 @@ spl_autoload_register(
   }
 );
 
-use models\animal\Dog;
-use models\car\Fusca;
+use Models\Animal\Dog;
+use Models\Car\Fusca;
+use Controller\Animal as AnimalController;
+use Controller\Car as CarController;
 
 $a = new Dog();
 $f = new Fusca();
+$ac = new AnimalController();
+$cc = new CarController();
