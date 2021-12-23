@@ -1,13 +1,15 @@
 <?php
 
 spl_autoload_register(
-  function($classe) {
-    require("$classe.php");
+  function($class) {
+    $class = str_replace("\\", "/", $class);
+    $path =  __DIR__ . "/src/$class.php";
+    require($path);
   }
 );
 
-$a = new Animal();
+use models\animal\Dog;
+use models\car\Fusca;
 
-$p = new Planet();
-
-$v = new Car();
+$a = new Dog();
+$f = new Fusca();
