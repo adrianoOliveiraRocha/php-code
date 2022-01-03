@@ -61,8 +61,6 @@ $BookTitles = new LinkedList();
 $BookTitles->insert("Introduction to Algorithm");
 $BookTitles->insert("Introduction to PHP and Data structures");
 $BookTitles->insert("Programming Intelligence");
-// $BookTitles->display();
+$BookTitles->display();
 
 $BookTitles->insertBefore("My First, My One, My Everthing", "Introduction to Algorithm");
-
-$BookTitles->display();
